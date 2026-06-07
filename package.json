@@ -1,0 +1,26 @@
+{
+  "name": "lauds",
+  "displayName": "Lauds",
+  "publisher": "ntk148v",
+  "description": "Paper-light Vesper theme with peppermint and orange accents.",
+  "license": "MIT",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "scripts": {
+    "test": "node scripts/validate.js"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Lauds",
+        "uiTheme": "vs",
+        "path": "./themes/lauds-light-color-theme.json"
+      }
+    ]
+  }
+}
