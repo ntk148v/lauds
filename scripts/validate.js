@@ -92,7 +92,7 @@ function validatePaletteUse() {
 }
 
 function validateNeovimRuntime() {
-  const result = spawnSync("nvim", ["--headless", "-u", "NONE", "-c", "set rtp^=.", "-c", "lua require('lauds').setup()", "-c", "colorscheme lauds", "-c", "qa"], {
+  const result = spawnSync("nvim", ["--headless", "-u", "NONE", "-i", "NONE", "-c", "set rtp^=.", "-c", "lua require('lauds').setup()", "-c", "colorscheme lauds", "-c", "qa"], {
     cwd: root,
     encoding: "utf8",
   });
@@ -101,6 +101,7 @@ function validateNeovimRuntime() {
     return;
   }
   assert(result.status === 0, `Neovim runtime validation failed:\n${result.stderr || result.stdout}`);
+  assert(!/Error/i.test(result.stderr), `Neovim runtime validation wrote an error:\n${result.stderr}`);
 }
 
 validatePackage();
