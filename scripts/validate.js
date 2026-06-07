@@ -95,6 +95,10 @@ function validateNeovimRuntime() {
   const result = spawnSync("nvim", ["--headless", "-u", "NONE", "-i", "NONE", "-c", "set rtp^=.", "-c", "lua require('lauds').setup()", "-c", "colorscheme lauds", "-c", "qa"], {
     cwd: root,
     encoding: "utf8",
+    env: {
+      ...process.env,
+      NVIM_LOG_FILE: "/tmp/lauds-nvim.log",
+    },
   });
   if (result.error && result.error.code === "ENOENT") {
     console.warn("nvim not found; skipped Neovim runtime validation");
