@@ -1,20 +1,23 @@
 # Lauds
 
-Lauds is a paper-light variant of [Vesper](https://github.com/raunofreiberg/vesper): sparse syntax, peppermint strings, orange functions, and warm paper surfaces. It uses [Flexoki](https://github.com/kepano/flexoki) paper and ink colors as the light foundation while preserving Vesper's accent roles.
+Lauds is a paper-light variant of [Vesper](https://github.com/raunofreiberg/vesper): sparse syntax, peppermint strings, orange functions, and cool charcoal structure. It keeps [Flexoki](https://github.com/kepano/flexoki) paper as the background while moving the rest of the palette toward Vesper's sharper mint, orange, pink, and purple identity.
 
 ## Palette
 
 | Role | Color |
 | --- | --- |
 | Background | `#FFFCF0` |
-| Raised background | `#F2F0E5` |
-| Border | `#DAD8CE` |
-| Foreground | `#282726` |
-| Muted foreground | `#6F6E69` |
-| Comment | `#878580` |
-| Orange | `#B85C20` |
-| Mint | `#1F8F7A` |
-| Red | `#AF3029` |
+| Alternate background | `#F7F3E8` |
+| Raised background | `#EDE8DC` |
+| Border | `#D6D0C4` |
+| Foreground | `#101010` |
+| Muted foreground | `#5F6166` |
+| Comment | `#7B7D82` |
+| Orange | `#B45A20` |
+| Mint | `#16866F` |
+| Red | `#C1503F` |
+| Pink | `#B34A72` |
+| Purple | `#7264A8` |
 
 ## VS Code
 

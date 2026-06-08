@@ -52,7 +52,7 @@ local function groups(c, opts)
     SpellBad = { sp = c.red, undercurl = true },
     SpellCap = { sp = c.orange, undercurl = true },
     SpellLocal = { sp = c.mint, undercurl = true },
-    SpellRare = { sp = c.magenta, undercurl = true },
+    SpellRare = { sp = c.pink, undercurl = true },
     StatusLine = { fg = c.fg_muted, bg = bg_alt },
     StatusLineNC = { fg = c.comment, bg = bg_alt },
     Substitute = { fg = c.bg, bg = c.mint },
