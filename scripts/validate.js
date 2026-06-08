@@ -91,6 +91,24 @@ function validatePaletteUse() {
   });
 }
 
+function validatePywalScheme() {
+  const scheme = parseJson("variants/pywal/lauds.json");
+  assert(scheme.refer === "https://github.com/ntk148v/lauds", "pywal scheme must refer to Lauds");
+  assert(scheme.special.background.toUpperCase() === "#FFFCF0", "pywal background must use Flexoki paper");
+  assert(scheme.special.foreground.toUpperCase() === "#282726", "pywal foreground must use Lauds ink");
+  assert(scheme.special.cursor.toUpperCase() === "#B85C20", "pywal cursor must use Lauds orange");
+
+  for (let index = 0; index <= 15; index += 1) {
+    const key = `color${index}`;
+    assert(/^#[0-9A-Fa-f]{6}$/.test(scheme.colors[key]), `pywal ${key} must be a hex color`);
+  }
+
+  assert(scheme.colors.color1.toUpperCase() === "#AF3029", "pywal red must use Lauds red");
+  assert(scheme.colors.color3.toUpperCase() === "#B85C20", "pywal yellow slot must use Lauds orange");
+  assert(scheme.colors.color6.toUpperCase() === "#1F8F7A", "pywal cyan slot must use Lauds mint");
+  assert(scheme.colors.color7.toUpperCase() === "#F2F0E5", "pywal light foreground slot must use Lauds raised paper");
+}
+
 function validateNeovimRuntime() {
   const result = spawnSync("nvim", ["--headless", "-u", "NONE", "-i", "NONE", "-c", "set rtp^=.", "-c", "lua require('lauds').setup()", "-c", "colorscheme lauds", "-c", "qa"], {
     cwd: root,
@@ -112,5 +130,6 @@ validatePackage();
 validateVsCodeTheme();
 validateNeovimFiles();
 validatePaletteUse();
+validatePywalScheme();
 validateNeovimRuntime();
 console.log("Lauds validation passed");

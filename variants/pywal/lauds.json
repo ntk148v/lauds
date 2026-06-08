@@ -1,0 +1,26 @@
+{
+    "refer": "https://github.com/ntk148v/lauds",
+    "special": {
+        "background": "#FFFCF0",
+        "foreground": "#282726",
+        "cursor": "#B85C20"
+    },
+    "colors": {
+        "color0": "#282726",
+        "color1": "#AF3029",
+        "color2": "#1F8F7A",
+        "color3": "#B85C20",
+        "color4": "#205EA6",
+        "color5": "#A02F6F",
+        "color6": "#1F8F7A",
+        "color7": "#F2F0E5",
+        "color8": "#6F6E69",
+        "color9": "#AF3029",
+        "color10": "#1F8F7A",
+        "color11": "#B85C20",
+        "color12": "#205EA6",
+        "color13": "#A02F6F",
+        "color14": "#1F8F7A",
+        "color15": "#FFFCF0"
+    }
+}
