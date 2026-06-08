@@ -40,23 +40,23 @@ Work happens on:
 
 ## Approved Palette
 
-| Role | Color | Purpose |
-| --- | --- | --- |
-| `bg` | `#FFFCF0` | Primary editor background, the only retained Flexoki anchor |
-| `bg_alt` | `#F7F3E8` | Sidebar, inactive tabs, panels, soft alternate surface |
-| `bg_raised` | `#EDE8DC` | Inputs, hovers, active rows, stronger surface contrast |
-| `border` | `#D6D0C4` | Borders, rulers, separators |
-| `fg` | `#101010` | Primary Vesper-like near-black text |
-| `fg_muted` | `#5F6166` | Keywords, operators, punctuation, secondary UI |
-| `comment` | `#7B7D82` | Comments and inactive metadata |
-| `orange` | `#B45A20` | Functions, methods, tags, JSON keys, numbers, active UI |
-| `orange_soft` | `#F3D2B8` | Orange-tinted selections, search, diagnostic backgrounds |
-| `mint` | `#16866F` | Strings, insertions, success |
-| `mint_soft` | `#BFE9DE` | Mint-tinted diff and info backgrounds |
-| `red` | `#C1503F` | Errors, invalid syntax, deletions |
-| `red_soft` | `#F6C8BF` | Red-tinted diff and diagnostic backgrounds |
-| `pink` | `#B34A72` | Terminal/plugin accent, Vesper-adjacent secondary color |
-| `purple` | `#7264A8` | Terminal/plugin accent, Vesper-adjacent secondary color |
+| Role          | Color     | Purpose                                                     |
+| ------------- | --------- | ----------------------------------------------------------- |
+| `bg`          | `#FFFCF0` | Primary editor background, the only retained Flexoki anchor |
+| `bg_alt`      | `#F7F3E8` | Sidebar, inactive tabs, panels, soft alternate surface      |
+| `bg_raised`   | `#EDE8DC` | Inputs, hovers, active rows, stronger surface contrast      |
+| `border`      | `#D6D0C4` | Borders, rulers, separators                                 |
+| `fg`          | `#101010` | Primary Vesper-like near-black text                         |
+| `fg_muted`    | `#5F6166` | Keywords, operators, punctuation, secondary UI              |
+| `comment`     | `#7B7D82` | Comments and inactive metadata                              |
+| `orange`      | `#B45A20` | Functions, methods, tags, JSON keys, numbers, active UI     |
+| `orange_soft` | `#F3D2B8` | Orange-tinted selections, search, diagnostic backgrounds    |
+| `mint`        | `#16866F` | Strings, insertions, success                                |
+| `mint_soft`   | `#BFE9DE` | Mint-tinted diff and info backgrounds                       |
+| `red`         | `#C1503F` | Errors, invalid syntax, deletions                           |
+| `red_soft`    | `#F6C8BF` | Red-tinted diff and diagnostic backgrounds                  |
+| `pink`        | `#B34A72` | Terminal/plugin accent, Vesper-adjacent secondary color     |
+| `purple`      | `#7264A8` | Terminal/plugin accent, Vesper-adjacent secondary color     |
 
 ## Syntax Design
 

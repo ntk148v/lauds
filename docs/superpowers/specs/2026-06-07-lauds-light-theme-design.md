@@ -32,21 +32,21 @@ Reference sources:
 
 The approved palette direction is "Paper Vesper": Flexoki light surfaces and ink neutrals, with Vesper-derived peppermint and orange accents tuned for readability on paper.
 
-| Role | Color | Purpose |
-| --- | --- | --- |
-| `bg` | `#FFFCF0` | Primary editor background, Flexoki paper |
-| `bg_alt` | `#F2F0E5` | Sidebars, widgets, inactive tabs, subtle selections |
-| `bg_raised` | `#E6E4D9` | Inputs, hover states, stronger UI surfaces |
-| `border` | `#DAD8CE` | Borders, rulers, widget outlines |
-| `fg` | `#282726` | Primary text, code foreground |
-| `fg_muted` | `#6F6E69` | Keywords, operators, secondary text |
-| `comment` | `#878580` | Comments and inactive metadata |
-| `orange` | `#B85C20` | Functions, tags, JSON keys, numbers, active UI |
-| `orange_soft` | `#F4C7A2` | Orange-tinted selections, badges, backgrounds |
-| `mint` | `#1F8F7A` | Strings, inserted diffs, success states |
-| `mint_soft` | `#BFE8D9` | Mint-tinted diff backgrounds and soft highlights |
-| `red` | `#AF3029` | Errors, invalid syntax, deletions |
-| `red_soft` | `#FFCABB` | Red-tinted diff and diagnostic backgrounds |
+| Role          | Color     | Purpose                                             |
+| ------------- | --------- | --------------------------------------------------- |
+| `bg`          | `#FFFCF0` | Primary editor background, Flexoki paper            |
+| `bg_alt`      | `#F2F0E5` | Sidebars, widgets, inactive tabs, subtle selections |
+| `bg_raised`   | `#E6E4D9` | Inputs, hover states, stronger UI surfaces          |
+| `border`      | `#DAD8CE` | Borders, rulers, widget outlines                    |
+| `fg`          | `#282726` | Primary text, code foreground                       |
+| `fg_muted`    | `#6F6E69` | Keywords, operators, secondary text                 |
+| `comment`     | `#878580` | Comments and inactive metadata                      |
+| `orange`      | `#B85C20` | Functions, tags, JSON keys, numbers, active UI      |
+| `orange_soft` | `#F4C7A2` | Orange-tinted selections, badges, backgrounds       |
+| `mint`        | `#1F8F7A` | Strings, inserted diffs, success states             |
+| `mint_soft`   | `#BFE8D9` | Mint-tinted diff backgrounds and soft highlights    |
+| `red`         | `#AF3029` | Errors, invalid syntax, deletions                   |
+| `red_soft`    | `#FFCABB` | Red-tinted diff and diagnostic backgrounds          |
 
 ## Syntax Model
 

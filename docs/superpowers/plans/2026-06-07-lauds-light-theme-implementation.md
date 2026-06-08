@@ -26,6 +26,7 @@
 ## Task 1: Validation Harness And Metadata
 
 **Files:**
+
 - Create: `package.json`
 - Create: `scripts/validate.js`
 - Create: `.vscodeignore`
@@ -37,108 +38,186 @@
 Create `scripts/validate.js` with checks for files that do not exist yet. This must fail until the VS Code and Neovim theme files are added.
 
 ```javascript
-const fs = require("fs");
-const path = require("path");
-const { spawnSync } = require("child_process");
+const fs = require('fs')
+const path = require('path')
+const { spawnSync } = require('child_process')
 
-const root = path.resolve(__dirname, "..");
+const root = path.resolve(__dirname, '..')
 
 function read(relativePath) {
-  return fs.readFileSync(path.join(root, relativePath), "utf8");
+  return fs.readFileSync(path.join(root, relativePath), 'utf8')
 }
 
 function assert(condition, message) {
   if (!condition) {
-    throw new Error(message);
+    throw new Error(message)
   }
 }
 
 function parseJson(relativePath) {
-  return JSON.parse(read(relativePath));
+  return JSON.parse(read(relativePath))
 }
 
 function parseJsonc(relativePath) {
   const source = read(relativePath)
-    .replace(/\/\*[\s\S]*?\*\//g, "")
-    .replace(/(^|[^:])\/\/.*$/gm, "$1");
-  return JSON.parse(source);
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/(^|[^:])\/\/.*$/gm, '$1')
+  return JSON.parse(source)
 }
 
 function collectHexValues(value, output = []) {
-  if (typeof value === "string" && /^#[0-9A-Fa-f]{3,8}$/.test(value)) {
-    output.push(value.toUpperCase());
+  if (typeof value === 'string' && /^#[0-9A-Fa-f]{3,8}$/.test(value)) {
+    output.push(value.toUpperCase())
   } else if (Array.isArray(value)) {
-    value.forEach((item) => collectHexValues(item, output));
-  } else if (value && typeof value === "object") {
-    Object.values(value).forEach((item) => collectHexValues(item, output));
+    value.forEach((item) => collectHexValues(item, output))
+  } else if (value && typeof value === 'object') {
+    Object.values(value).forEach((item) => collectHexValues(item, output))
   }
-  return output;
+  return output
 }
 
 function validatePackage() {
-  const pkg = parseJson("package.json");
-  assert(pkg.name === "lauds", "package name must be lauds");
-  assert(pkg.displayName === "Lauds", "displayName must be Lauds");
-  assert(pkg.contributes.themes.length === 1, "one VS Code theme must be contributed");
-  const theme = pkg.contributes.themes[0];
-  assert(theme.label === "Lauds", "theme label must be Lauds");
-  assert(theme.uiTheme === "vs", "theme must declare light VS Code uiTheme vs");
-  assert(theme.path === "./themes/lauds-light-color-theme.json", "theme path must point to lauds light theme");
+  const pkg = parseJson('package.json')
+  assert(pkg.name === 'lauds', 'package name must be lauds')
+  assert(pkg.displayName === 'Lauds', 'displayName must be Lauds')
+  assert(
+    pkg.contributes.themes.length === 1,
+    'one VS Code theme must be contributed',
+  )
+  const theme = pkg.contributes.themes[0]
+  assert(theme.label === 'Lauds', 'theme label must be Lauds')
+  assert(theme.uiTheme === 'vs', 'theme must declare light VS Code uiTheme vs')
+  assert(
+    theme.path === './themes/lauds-light-color-theme.json',
+    'theme path must point to lauds light theme',
+  )
 }
 
 function validateVsCodeTheme() {
-  const theme = parseJsonc("themes/lauds-light-color-theme.json");
-  assert(theme.name === "Lauds", "VS Code theme name must be Lauds");
-  assert(theme.colors["editor.background"].toUpperCase() === "#FFFCF0", "editor background must use Flexoki paper");
-  assert(theme.colors["editor.foreground"].toUpperCase() === "#282726", "editor foreground must use warm ink");
-  assert(theme.colors["button.background"].toUpperCase() === "#B85C20", "button background must use Lauds orange");
-  assert(Array.isArray(theme.tokenColors), "tokenColors must be an array");
-  assert(theme.tokenColors.some((entry) => entry.name === "String" && entry.settings.foreground.toUpperCase() === "#1F8F7A"), "strings must use Lauds mint");
-  assert(theme.tokenColors.some((entry) => entry.name === "Function" && entry.settings.foreground.toUpperCase() === "#B85C20"), "functions must use Lauds orange");
-  assert(theme.tokenColors.some((entry) => entry.name === "Comment" && entry.settings.foreground.toUpperCase() === "#878580"), "comments must use muted ink");
+  const theme = parseJsonc('themes/lauds-light-color-theme.json')
+  assert(theme.name === 'Lauds', 'VS Code theme name must be Lauds')
+  assert(
+    theme.colors['editor.background'].toUpperCase() === '#FFFCF0',
+    'editor background must use Flexoki paper',
+  )
+  assert(
+    theme.colors['editor.foreground'].toUpperCase() === '#282726',
+    'editor foreground must use warm ink',
+  )
+  assert(
+    theme.colors['button.background'].toUpperCase() === '#B85C20',
+    'button background must use Lauds orange',
+  )
+  assert(Array.isArray(theme.tokenColors), 'tokenColors must be an array')
+  assert(
+    theme.tokenColors.some(
+      (entry) =>
+        entry.name === 'String' &&
+        entry.settings.foreground.toUpperCase() === '#1F8F7A',
+    ),
+    'strings must use Lauds mint',
+  )
+  assert(
+    theme.tokenColors.some(
+      (entry) =>
+        entry.name === 'Function' &&
+        entry.settings.foreground.toUpperCase() === '#B85C20',
+    ),
+    'functions must use Lauds orange',
+  )
+  assert(
+    theme.tokenColors.some(
+      (entry) =>
+        entry.name === 'Comment' &&
+        entry.settings.foreground.toUpperCase() === '#878580',
+    ),
+    'comments must use muted ink',
+  )
 }
 
 function validateNeovimFiles() {
-  const palette = read("lua/lauds/palette.lua");
-  ["bg", "bg_alt", "bg_raised", "border", "fg", "fg_muted", "comment", "orange", "orange_soft", "mint", "mint_soft", "red", "red_soft"].forEach((key) => {
-    assert(palette.includes(`${key} =`), `palette must define ${key}`);
-  });
-  const init = read("lua/lauds/init.lua");
-  assert(init.includes("function M.setup"), "init.lua must expose setup");
-  assert(init.includes("function M.colorscheme"), "init.lua must expose colorscheme");
-  const theme = read("lua/lauds/theme.lua");
-  assert(theme.includes("@string"), "theme.lua must define Treesitter strings");
-  assert(theme.includes("@function"), "theme.lua must define Treesitter functions");
-  assert(theme.includes("DiagnosticError"), "theme.lua must define diagnostics");
-  assert(read("colors/lauds.lua").includes("require(\"lauds\").colorscheme()"), "colors/lauds.lua must load the colorscheme");
+  const palette = read('lua/lauds/palette.lua')
+  ;[
+    'bg',
+    'bg_alt',
+    'bg_raised',
+    'border',
+    'fg',
+    'fg_muted',
+    'comment',
+    'orange',
+    'orange_soft',
+    'mint',
+    'mint_soft',
+    'red',
+    'red_soft',
+  ].forEach((key) => {
+    assert(palette.includes(`${key} =`), `palette must define ${key}`)
+  })
+  const init = read('lua/lauds/init.lua')
+  assert(init.includes('function M.setup'), 'init.lua must expose setup')
+  assert(
+    init.includes('function M.colorscheme'),
+    'init.lua must expose colorscheme',
+  )
+  const theme = read('lua/lauds/theme.lua')
+  assert(theme.includes('@string'), 'theme.lua must define Treesitter strings')
+  assert(
+    theme.includes('@function'),
+    'theme.lua must define Treesitter functions',
+  )
+  assert(theme.includes('DiagnosticError'), 'theme.lua must define diagnostics')
+  assert(
+    read('colors/lauds.lua').includes('require("lauds").colorscheme()'),
+    'colors/lauds.lua must load the colorscheme',
+  )
 }
 
 function validatePaletteUse() {
-  const theme = parseJsonc("themes/lauds-light-color-theme.json");
-  const values = new Set(collectHexValues(theme));
-  ["#FFFCF0", "#282726", "#B85C20", "#1F8F7A", "#AF3029"].forEach((hex) => {
-    assert(values.has(hex), `VS Code theme must use ${hex}`);
-  });
+  const theme = parseJsonc('themes/lauds-light-color-theme.json')
+  const values = new Set(collectHexValues(theme))
+  ;['#FFFCF0', '#282726', '#B85C20', '#1F8F7A', '#AF3029'].forEach((hex) => {
+    assert(values.has(hex), `VS Code theme must use ${hex}`)
+  })
 }
 
 function validateNeovimRuntime() {
-  const result = spawnSync("nvim", ["--headless", "-u", "NONE", "-c", "set rtp^=.", "-c", "lua require('lauds').setup()", "-c", "colorscheme lauds", "-c", "qa"], {
-    cwd: root,
-    encoding: "utf8",
-  });
-  if (result.error && result.error.code === "ENOENT") {
-    console.warn("nvim not found; skipped Neovim runtime validation");
-    return;
+  const result = spawnSync(
+    'nvim',
+    [
+      '--headless',
+      '-u',
+      'NONE',
+      '-c',
+      'set rtp^=.',
+      '-c',
+      "lua require('lauds').setup()",
+      '-c',
+      'colorscheme lauds',
+      '-c',
+      'qa',
+    ],
+    {
+      cwd: root,
+      encoding: 'utf8',
+    },
+  )
+  if (result.error && result.error.code === 'ENOENT') {
+    console.warn('nvim not found; skipped Neovim runtime validation')
+    return
   }
-  assert(result.status === 0, `Neovim runtime validation failed:\n${result.stderr || result.stdout}`);
+  assert(
+    result.status === 0,
+    `Neovim runtime validation failed:\n${result.stderr || result.stdout}`,
+  )
 }
 
-validatePackage();
-validateVsCodeTheme();
-validateNeovimFiles();
-validatePaletteUse();
-validateNeovimRuntime();
-console.log("Lauds validation passed");
+validatePackage()
+validateVsCodeTheme()
+validateNeovimFiles()
+validatePaletteUse()
+validateNeovimRuntime()
+console.log('Lauds validation passed')
 ```
 
 - [ ] **Step 2: Create package metadata**
@@ -156,9 +235,7 @@ Create `package.json` with:
   "engines": {
     "vscode": "^1.75.0"
   },
-  "categories": [
-    "Themes"
-  ],
+  "categories": ["Themes"],
   "scripts": {
     "test": "node scripts/validate.js"
   },
@@ -211,6 +288,7 @@ git commit -m "chore: add lauds validation harness"
 ## Task 2: VS Code Theme
 
 **Files:**
+
 - Create: `themes/lauds-light-color-theme.json`
 - Modify: `README.md`
 
@@ -304,38 +382,207 @@ Create `themes/lauds-light-color-theme.json` using:
     "editorHoverWidget.border": "#DAD8CE",
     "scrollbarSlider.background": "#CECDC380",
     "scrollbarSlider.hoverBackground": "#B7B5AC",
-    "settings.modifiedItemIndicator": "#B85C20"
+    "settings.modifiedItemIndicator": "#B85C20",
   },
   "tokenColors": [
-    { "name": "Comment", "scope": ["comment", "punctuation.definition.comment"], "settings": { "fontStyle": "italic", "foreground": "#878580" } },
-    { "name": "Variables", "scope": ["variable", "string constant.other.placeholder", "entity.name.tag"], "settings": { "foreground": "#282726" } },
-    { "name": "Invalid", "scope": ["invalid", "invalid.illegal"], "settings": { "foreground": "#AF3029" } },
-    { "name": "Keyword", "scope": ["keyword", "storage.type", "storage.modifier"], "settings": { "foreground": "#6F6E69" } },
-    { "name": "Operator", "scope": ["keyword.control", "keyword.operator", "punctuation", "punctuation.definition.tag", "punctuation.section.embedded"], "settings": { "foreground": "#6F6E69" } },
-    { "name": "Tag", "scope": ["entity.name.tag", "meta.tag.sgml", "markup.deleted.git_gutter"], "settings": { "foreground": "#B85C20" } },
-    { "name": "Function", "scope": ["entity.name.function", "variable.function", "support.function", "keyword.other.special-method"], "settings": { "foreground": "#B85C20" } },
-    { "name": "Number", "scope": ["constant.numeric", "support.constant", "constant.character", "constant.escape", "keyword.other.unit", "keyword.other", "constant.language.boolean"], "settings": { "foreground": "#B85C20" } },
-    { "name": "String", "scope": ["string", "constant.other.symbol", "constant.other.key"], "settings": { "foreground": "#1F8F7A" } },
-    { "name": "Class", "scope": ["entity.name", "support.type", "support.class", "support.other.namespace", "markup.changed.git_gutter", "support.type.sys-types"], "settings": { "foreground": "#B85C20" } },
-    { "name": "CSS Property", "scope": ["source.css support.type.property-name", "source.scss support.type.property-name", "source.less support.type.property-name", "meta.property-name.css"], "settings": { "foreground": "#282726" } },
-    { "name": "Language Variable", "scope": ["variable.language"], "settings": { "foreground": "#6F6E69" } },
-    { "name": "Attributes", "scope": ["entity.other.attribute-name", "meta.property-list.scss", "meta.attribute-selector.scss", "meta.selector.css"], "settings": { "foreground": "#B85C20" } },
-    { "name": "Inserted", "scope": ["markup.inserted"], "settings": { "foreground": "#1F8F7A" } },
-    { "name": "Deleted", "scope": ["markup.deleted"], "settings": { "foreground": "#AF3029" } },
-    { "name": "Changed", "scope": ["markup.changed"], "settings": { "foreground": "#6F6E69" } },
-    { "name": "Regular Expressions", "scope": ["string.regexp"], "settings": { "foreground": "#6F6E69" } },
-    { "name": "URL", "scope": ["*url*", "*link*", "*uri*"], "settings": { "fontStyle": "underline" } },
-    { "name": "JSON Key", "scope": ["source.json meta.structure.dictionary.json support.type.property-name.json"], "settings": { "foreground": "#B85C20" } },
-    { "name": "Markdown Plain", "scope": ["text.html.markdown", "punctuation.definition.list_item.markdown"], "settings": { "foreground": "#282726" } },
-    { "name": "Markdown Raw Inline", "scope": ["text.html.markdown markup.inline.raw.markdown"], "settings": { "foreground": "#6F6E69" } },
-    { "name": "Markdown Heading", "scope": ["markdown.heading", "markup.heading", "markup.heading.markdown punctuation.definition.heading.markdown"], "settings": { "foreground": "#B85C20" } },
-    { "name": "Markup Italic", "scope": ["markup.italic"], "settings": { "fontStyle": "italic", "foreground": "#282726" } },
-    { "name": "Markup Bold", "scope": ["markup.bold", "markup.bold string"], "settings": { "fontStyle": "bold", "foreground": "#282726" } },
-    { "name": "Markup Underline", "scope": ["markup.underline"], "settings": { "fontStyle": "underline", "foreground": "#B85C20" } },
-    { "name": "Markdown Link Description", "scope": ["string.other.link.description.title.markdown"], "settings": { "foreground": "#6F6E69" } },
-    { "name": "Markdown Link Anchor", "scope": ["constant.other.reference.link.markdown"], "settings": { "foreground": "#B85C20" } },
-    { "name": "Markup Raw Block", "scope": ["markup.raw.block"], "settings": { "foreground": "#6F6E69" } },
-    { "name": "Markup Table", "scope": ["markup.table"], "settings": { "foreground": "#282726" } }
+    {
+      "name": "Comment",
+      "scope": ["comment", "punctuation.definition.comment"],
+      "settings": { "fontStyle": "italic", "foreground": "#878580" },
+    },
+    {
+      "name": "Variables",
+      "scope": [
+        "variable",
+        "string constant.other.placeholder",
+        "entity.name.tag",
+      ],
+      "settings": { "foreground": "#282726" },
+    },
+    {
+      "name": "Invalid",
+      "scope": ["invalid", "invalid.illegal"],
+      "settings": { "foreground": "#AF3029" },
+    },
+    {
+      "name": "Keyword",
+      "scope": ["keyword", "storage.type", "storage.modifier"],
+      "settings": { "foreground": "#6F6E69" },
+    },
+    {
+      "name": "Operator",
+      "scope": [
+        "keyword.control",
+        "keyword.operator",
+        "punctuation",
+        "punctuation.definition.tag",
+        "punctuation.section.embedded",
+      ],
+      "settings": { "foreground": "#6F6E69" },
+    },
+    {
+      "name": "Tag",
+      "scope": [
+        "entity.name.tag",
+        "meta.tag.sgml",
+        "markup.deleted.git_gutter",
+      ],
+      "settings": { "foreground": "#B85C20" },
+    },
+    {
+      "name": "Function",
+      "scope": [
+        "entity.name.function",
+        "variable.function",
+        "support.function",
+        "keyword.other.special-method",
+      ],
+      "settings": { "foreground": "#B85C20" },
+    },
+    {
+      "name": "Number",
+      "scope": [
+        "constant.numeric",
+        "support.constant",
+        "constant.character",
+        "constant.escape",
+        "keyword.other.unit",
+        "keyword.other",
+        "constant.language.boolean",
+      ],
+      "settings": { "foreground": "#B85C20" },
+    },
+    {
+      "name": "String",
+      "scope": ["string", "constant.other.symbol", "constant.other.key"],
+      "settings": { "foreground": "#1F8F7A" },
+    },
+    {
+      "name": "Class",
+      "scope": [
+        "entity.name",
+        "support.type",
+        "support.class",
+        "support.other.namespace",
+        "markup.changed.git_gutter",
+        "support.type.sys-types",
+      ],
+      "settings": { "foreground": "#B85C20" },
+    },
+    {
+      "name": "CSS Property",
+      "scope": [
+        "source.css support.type.property-name",
+        "source.scss support.type.property-name",
+        "source.less support.type.property-name",
+        "meta.property-name.css",
+      ],
+      "settings": { "foreground": "#282726" },
+    },
+    {
+      "name": "Language Variable",
+      "scope": ["variable.language"],
+      "settings": { "foreground": "#6F6E69" },
+    },
+    {
+      "name": "Attributes",
+      "scope": [
+        "entity.other.attribute-name",
+        "meta.property-list.scss",
+        "meta.attribute-selector.scss",
+        "meta.selector.css",
+      ],
+      "settings": { "foreground": "#B85C20" },
+    },
+    {
+      "name": "Inserted",
+      "scope": ["markup.inserted"],
+      "settings": { "foreground": "#1F8F7A" },
+    },
+    {
+      "name": "Deleted",
+      "scope": ["markup.deleted"],
+      "settings": { "foreground": "#AF3029" },
+    },
+    {
+      "name": "Changed",
+      "scope": ["markup.changed"],
+      "settings": { "foreground": "#6F6E69" },
+    },
+    {
+      "name": "Regular Expressions",
+      "scope": ["string.regexp"],
+      "settings": { "foreground": "#6F6E69" },
+    },
+    {
+      "name": "URL",
+      "scope": ["*url*", "*link*", "*uri*"],
+      "settings": { "fontStyle": "underline" },
+    },
+    {
+      "name": "JSON Key",
+      "scope": [
+        "source.json meta.structure.dictionary.json support.type.property-name.json",
+      ],
+      "settings": { "foreground": "#B85C20" },
+    },
+    {
+      "name": "Markdown Plain",
+      "scope": [
+        "text.html.markdown",
+        "punctuation.definition.list_item.markdown",
+      ],
+      "settings": { "foreground": "#282726" },
+    },
+    {
+      "name": "Markdown Raw Inline",
+      "scope": ["text.html.markdown markup.inline.raw.markdown"],
+      "settings": { "foreground": "#6F6E69" },
+    },
+    {
+      "name": "Markdown Heading",
+      "scope": [
+        "markdown.heading",
+        "markup.heading",
+        "markup.heading.markdown punctuation.definition.heading.markdown",
+      ],
+      "settings": { "foreground": "#B85C20" },
+    },
+    {
+      "name": "Markup Italic",
+      "scope": ["markup.italic"],
+      "settings": { "fontStyle": "italic", "foreground": "#282726" },
+    },
+    {
+      "name": "Markup Bold",
+      "scope": ["markup.bold", "markup.bold string"],
+      "settings": { "fontStyle": "bold", "foreground": "#282726" },
+    },
+    {
+      "name": "Markup Underline",
+      "scope": ["markup.underline"],
+      "settings": { "fontStyle": "underline", "foreground": "#B85C20" },
+    },
+    {
+      "name": "Markdown Link Description",
+      "scope": ["string.other.link.description.title.markdown"],
+      "settings": { "foreground": "#6F6E69" },
+    },
+    {
+      "name": "Markdown Link Anchor",
+      "scope": ["constant.other.reference.link.markdown"],
+      "settings": { "foreground": "#B85C20" },
+    },
+    {
+      "name": "Markup Raw Block",
+      "scope": ["markup.raw.block"],
+      "settings": { "foreground": "#6F6E69" },
+    },
+    {
+      "name": "Markup Table",
+      "scope": ["markup.table"],
+      "settings": { "foreground": "#282726" },
+    },
   ],
   "semanticHighlighting": true,
   "semanticTokenColors": {
@@ -347,8 +594,8 @@ Create `themes/lauds-light-color-theme.json` using:
     "keyword": "#6F6E69",
     "variable": "#282726",
     "property": "#282726",
-    "type": "#B85C20"
-  }
+    "type": "#B85C20",
+  },
 }
 ```
 
@@ -370,6 +617,7 @@ git commit -m "feat: add vscode lauds theme"
 ## Task 3: Neovim Theme
 
 **Files:**
+
 - Create: `colors/lauds.lua`
 - Create: `lua/lauds/init.lua`
 - Create: `lua/lauds/palette.lua`
@@ -424,6 +672,7 @@ git commit -m "feat: add neovim lauds theme"
 ## Task 4: Final Verification
 
 **Files:**
+
 - Modify: `docs/superpowers/plans/2026-06-07-lauds-light-theme-implementation.md`
 
 - [ ] **Step 1: Run full validation**

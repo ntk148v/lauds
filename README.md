@@ -4,20 +4,20 @@ Lauds is a paper-light variant of [Vesper](https://github.com/raunofreiberg/vesp
 
 ## Palette
 
-| Role | Color |
-| --- | --- |
-| Background | `#FFFCF0` |
+| Role                 | Color     |
+| -------------------- | --------- |
+| Background           | `#FFFCF0` |
 | Alternate background | `#F7F3E8` |
-| Raised background | `#EDE8DC` |
-| Border | `#D6D0C4` |
-| Foreground | `#101010` |
-| Muted foreground | `#5F6166` |
-| Comment | `#7B7D82` |
-| Orange | `#B45A20` |
-| Mint | `#16866F` |
-| Red | `#C1503F` |
-| Pink | `#B34A72` |
-| Purple | `#7264A8` |
+| Raised background    | `#EDE8DC` |
+| Border               | `#D6D0C4` |
+| Foreground           | `#101010` |
+| Muted foreground     | `#5F6166` |
+| Comment              | `#7B7D82` |
+| Orange               | `#B45A20` |
+| Mint                 | `#16866F` |
+| Red                  | `#C1503F` |
+| Pink                 | `#B34A72` |
+| Purple               | `#7264A8` |
 
 ## VS Code
 
