@@ -19,7 +19,7 @@ Lauds ships as a **VS Code extension**, a **Neovim colorscheme**, and a **pywal*
 | Raised     | `#EDE8DC` | `237, 232, 220` | ██     |
 | Border     | `#D6D0C4` | `214, 208, 196` | ██     |
 | Muted      | `#5F6166` | `95, 97, 102`   | ██     |
-| Comment    | `#7B7D82` | `123, 125, 130` | ██     |
+| Comment    | `#6E7075` | `110, 112, 117` | ██     |
 | Foreground | `#101010` | `16, 16, 16`    | ██     |
 
 ### Accents
@@ -27,7 +27,7 @@ Lauds ships as a **VS Code extension**, a **Neovim colorscheme**, and a **pywal*
 | Color  | Hex       | RGB             | Swatch |
 | ------ | --------- | --------------- | ------ |
 | Orange | `#B45A20` | `180, 90, 32`   | ██     |
-| Mint   | `#16866F` | `22, 134, 111`  | ██     |
+| Mint   | `#147A65` | `20, 122, 101`  | ██     |
 | Red    | `#C1503F` | `193, 80, 63`   | ██     |
 | Pink   | `#B34A72` | `179, 74, 114`  | ██     |
 | Purple | `#7264A8` | `114, 100, 168` | ██     |
@@ -44,9 +44,9 @@ Lauds ships as a **VS Code extension**, a **Neovim colorscheme**, and a **pywal*
 
 | Token            | Color     | Style     |
 | ---------------- | --------- | --------- |
-| Comment          | `#7B7D82` | italic    |
+| Comment          | `#6E7075` | italic    |
 | Keyword/Operator | `#5F6166` | —         |
-| String           | `#16866F` | —         |
+| String           | `#147A65` | —         |
 | Number/Boolean   | `#B45A20` | —         |
 | Function/Method  | `#B45A20` | —         |
 | Type/Class       | `#B45A20` | —         |
@@ -55,7 +55,7 @@ Lauds ships as a **VS Code extension**, a **Neovim colorscheme**, and a **pywal*
 | Error/Invalid    | `#C1503F` | —         |
 | Markup heading   | `#B45A20` | bold      |
 | Markup link      | `#B45A20` | underline |
-| Diff inserted    | `#16866F` | —         |
+| Diff inserted    | `#147A65` | —         |
 | Diff deleted     | `#C1503F` | —         |
 
 ## Project structure
@@ -156,7 +156,7 @@ The colorscheme provides a built-in **lualine theme**:
 
 ```lua
 require("lualine").setup({
-  options = { theme = require("lauds").lualine },
+  options = { theme = require("lauds").lualine() },
 })
 ```
 

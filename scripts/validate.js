@@ -25,6 +25,26 @@ function parseJsonc(relativePath) {
   return JSON.parse(source);
 }
 
+function hexToRgb(hex) {
+  const raw = hex.replace("#", "").slice(0, 6);
+  return [0, 2, 4].map((index) => parseInt(raw.slice(index, index + 2), 16) / 255);
+}
+
+function channel(value) {
+  return value <= 0.03928 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
+}
+
+function luminance(hex) {
+  const [r, g, b] = hexToRgb(hex).map(channel);
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+
+function contrast(foreground, background) {
+  const a = luminance(foreground);
+  const b = luminance(background);
+  return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
+}
+
 function collectHexValues(value, output = []) {
   if (typeof value === "string" && /^#[0-9A-Fa-f]{3,8}$/.test(value)) {
     output.push(value.toUpperCase());
@@ -55,7 +75,7 @@ function validateVsCodeTheme() {
   assert(theme.colors["button.background"].toUpperCase() === "#B45A20", "button background must use Lauds orange");
   assert(Array.isArray(theme.tokenColors), "tokenColors must be an array");
   assert(
-    theme.tokenColors.some((entry) => entry.name === "String" && entry.settings.foreground.toUpperCase() === "#16866F"),
+    theme.tokenColors.some((entry) => entry.name === "String" && entry.settings.foreground.toUpperCase() === "#147A65"),
     "strings must use Lauds mint",
   );
   assert(
@@ -63,7 +83,7 @@ function validateVsCodeTheme() {
     "functions must use Lauds orange",
   );
   assert(
-    theme.tokenColors.some((entry) => entry.name === "Comment" && entry.settings.foreground.toUpperCase() === "#7B7D82"),
+    theme.tokenColors.some((entry) => entry.name === "Comment" && entry.settings.foreground.toUpperCase() === "#6E7075"),
     "comments must use muted ink",
   );
 }
@@ -73,6 +93,13 @@ function validateNeovimFiles() {
   ["bg", "bg_alt", "bg_raised", "border", "fg", "fg_muted", "comment", "orange", "orange_soft", "mint", "mint_soft", "red", "red_soft", "pink", "purple"].forEach((key) => {
     assert(palette.includes(`${key} =`), `palette must define ${key}`);
   });
+  const readme = read("README.md");
+  assert(readme.includes('theme = require("lauds").lualine()'), "README lualine example must call lualine()");
+  assert(contrast("#147A65", "#FFFCF0") >= 4.5, "mint must be readable on paper");
+  assert(contrast("#6E7075", "#FFFCF0") >= 4.5, "comments must be readable on paper");
+  assert(contrast("#101010", "#F3D2B8") >= 4.5, "warning virtual text must be readable");
+  assert(contrast("#101010", "#BFE9DE") >= 4.5, "info virtual text must be readable");
+  assert(contrast("#101010", "#F6C8BF") >= 4.5, "error virtual text must be readable");
   const init = read("lua/lauds/init.lua");
   assert(init.includes("function M.setup"), "init.lua must expose setup");
   assert(init.includes("function M.colorscheme"), "init.lua must expose colorscheme");
@@ -86,7 +113,7 @@ function validateNeovimFiles() {
 function validatePaletteUse() {
   const theme = parseJsonc("themes/lauds-light-color-theme.json");
   const values = new Set(collectHexValues(theme));
-  ["#FFFCF0", "#101010", "#B45A20", "#16866F", "#C1503F"].forEach((hex) => {
+  ["#FFFCF0", "#101010", "#B45A20", "#147A65", "#C1503F"].forEach((hex) => {
     assert(values.has(hex), `VS Code theme must use ${hex}`);
   });
 }
@@ -105,7 +132,7 @@ function validatePywalScheme() {
 
   assert(scheme.colors.color1.toUpperCase() === "#C1503F", "pywal red must use Lauds red");
   assert(scheme.colors.color3.toUpperCase() === "#B45A20", "pywal yellow slot must use Lauds orange");
-  assert(scheme.colors.color6.toUpperCase() === "#16866F", "pywal cyan slot must use Lauds mint");
+  assert(scheme.colors.color6.toUpperCase() === "#147A65", "pywal cyan slot must use Lauds mint");
   assert(scheme.colors.color7.toUpperCase() === "#F7F3E8", "pywal light foreground slot must use Lauds alternate paper");
 }
 
