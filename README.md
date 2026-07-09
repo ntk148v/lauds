@@ -12,33 +12,33 @@ Lauds ships as a **VS Code extension**, a **Neovim colorscheme**, and a **pywal*
 
 ### Base
 
-| Color      | Hex       | RGB             | Swatch |
-| ---------- | --------- | --------------- | ------ |
-| Paper      | `#FFFCF0` | `255, 252, 240` | <span style="display:inline-block;width:1em;height:1em;background:#FFFCF0;border:1px solid #D6D0C4;border-radius:2px">&nbsp;</span> |
-| Bg alt     | `#F7F3E8` | `247, 243, 232` | <span style="display:inline-block;width:1em;height:1em;background:#F7F3E8;border:1px solid #D6D0C4;border-radius:2px">&nbsp;</span> |
-| Raised     | `#EDE8DC` | `237, 232, 220` | <span style="display:inline-block;width:1em;height:1em;background:#EDE8DC;border:1px solid #D6D0C4;border-radius:2px">&nbsp;</span> |
-| Border     | `#D6D0C4` | `214, 208, 196` | <span style="display:inline-block;width:1em;height:1em;background:#D6D0C4;border:1px solid #B8B4AD;border-radius:2px">&nbsp;</span> |
-| Muted      | `#5F6166` | `95, 97, 102`   | <span style="display:inline-block;width:1em;height:1em;background:#5F6166;border:1px solid #B8B4AD;border-radius:2px">&nbsp;</span> |
-| Comment    | `#6E7075` | `110, 112, 117` | <span style="display:inline-block;width:1em;height:1em;background:#6E7075;border:1px solid #B8B4AD;border-radius:2px">&nbsp;</span> |
-| Foreground | `#101010` | `16, 16, 16`    | <span style="display:inline-block;width:1em;height:1em;background:#101010;border:1px solid #B8B4AD;border-radius:2px">&nbsp;</span> |
+| Color      | Hex       | RGB             | Swatch                                                                                                                                                                                           |
+| ---------- | --------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Paper      | `#FFFCF0` | `255, 252, 240` | <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Crect width='14' height='14' fill='%23FFFCF0' stroke='%23D6D0C4' rx='2'/%3E%3C/svg%3E" alt=""> |
+| Bg alt     | `#F7F3E8` | `247, 243, 232` | <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Crect width='14' height='14' fill='%23F7F3E8' stroke='%23D6D0C4' rx='2'/%3E%3C/svg%3E" alt=""> |
+| Raised     | `#EDE8DC` | `237, 232, 220` | <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Crect width='14' height='14' fill='%23EDE8DC' stroke='%23D6D0C4' rx='2'/%3E%3C/svg%3E" alt=""> |
+| Border     | `#D6D0C4` | `214, 208, 196` | <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Crect width='14' height='14' fill='%23D6D0C4' stroke='%23B8B4AD' rx='2'/%3E%3C/svg%3E" alt=""> |
+| Muted      | `#5F6166` | `95, 97, 102`   | <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Crect width='14' height='14' fill='%235F6166' rx='2'/%3E%3C/svg%3E" alt="">                    |
+| Comment    | `#6E7075` | `110, 112, 117` | <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Crect width='14' height='14' fill='%236E7075' rx='2'/%3E%3C/svg%3E" alt="">                    |
+| Foreground | `#101010` | `16, 16, 16`    | <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Crect width='14' height='14' fill='%23101010' rx='2'/%3E%3C/svg%3E" alt="">                    |
 
 ### Accents
 
-| Color  | Hex       | RGB             | Swatch |
-| ------ | --------- | --------------- | ------ |
-| Orange | `#B45A20` | `180, 90, 32`   | <span style="display:inline-block;width:1em;height:1em;background:#B45A20;border:1px solid #B8B4AD;border-radius:2px">&nbsp;</span> |
-| Mint   | `#147A65` | `20, 122, 101`  | <span style="display:inline-block;width:1em;height:1em;background:#147A65;border:1px solid #B8B4AD;border-radius:2px">&nbsp;</span> |
-| Red    | `#C1503F` | `193, 80, 63`   | <span style="display:inline-block;width:1em;height:1em;background:#C1503F;border:1px solid #B8B4AD;border-radius:2px">&nbsp;</span> |
-| Pink   | `#B34A72` | `179, 74, 114`  | <span style="display:inline-block;width:1em;height:1em;background:#B34A72;border:1px solid #B8B4AD;border-radius:2px">&nbsp;</span> |
-| Purple | `#7264A8` | `114, 100, 168` | <span style="display:inline-block;width:1em;height:1em;background:#7264A8;border:1px solid #B8B4AD;border-radius:2px">&nbsp;</span> |
+| Color  | Hex       | RGB             | Swatch                                                                                                                                                                        |
+| ------ | --------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Orange | `#B45A20` | `180, 90, 32`   | <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Crect width='14' height='14' fill='%23B45A20' rx='2'/%3E%3C/svg%3E" alt=""> |
+| Mint   | `#147A65` | `20, 122, 101`  | <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Crect width='14' height='14' fill='%23147A65' rx='2'/%3E%3C/svg%3E" alt=""> |
+| Red    | `#C1503F` | `193, 80, 63`   | <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Crect width='14' height='14' fill='%23C1503F' rx='2'/%3E%3C/svg%3E" alt=""> |
+| Pink   | `#B34A72` | `179, 74, 114`  | <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Crect width='14' height='14' fill='%23B34A72' rx='2'/%3E%3C/svg%3E" alt=""> |
+| Purple | `#7264A8` | `114, 100, 168` | <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Crect width='14' height='14' fill='%237264A8' rx='2'/%3E%3C/svg%3E" alt=""> |
 
 ### Soft variants
 
-| Color       | Hex       | RGB             | Swatch |
-| ----------- | --------- | --------------- | ------ |
-| Orange soft | `#F3D2B8` | `243, 210, 184` | <span style="display:inline-block;width:1em;height:1em;background:#F3D2B8;border:1px solid #D6D0C4;border-radius:2px">&nbsp;</span> |
-| Mint soft   | `#BFE9DE` | `191, 233, 222` | <span style="display:inline-block;width:1em;height:1em;background:#BFE9DE;border:1px solid #D6D0C4;border-radius:2px">&nbsp;</span> |
-| Red soft    | `#F6C8BF` | `246, 200, 191` | <span style="display:inline-block;width:1em;height:1em;background:#F6C8BF;border:1px solid #D6D0C4;border-radius:2px">&nbsp;</span> |
+| Color       | Hex       | RGB             | Swatch                                                                                                                                                                                           |
+| ----------- | --------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Orange soft | `#F3D2B8` | `243, 210, 184` | <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Crect width='14' height='14' fill='%23F3D2B8' stroke='%23D6D0C4' rx='2'/%3E%3C/svg%3E" alt=""> |
+| Mint soft   | `#BFE9DE` | `191, 233, 222` | <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Crect width='14' height='14' fill='%23BFE9DE' stroke='%23D6D0C4' rx='2'/%3E%3C/svg%3E" alt=""> |
+| Red soft    | `#F6C8BF` | `246, 200, 191` | <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14'%3E%3Crect width='14' height='14' fill='%23F6C8BF' stroke='%23D6D0C4' rx='2'/%3E%3C/svg%3E" alt=""> |
 
 ## Syntax highlighting
 
