@@ -1,46 +1,53 @@
-# Lauds
+<div align="center">
+    <h2>Lauds</h2>
+    <p>
+    <img src="_images/swatch-base-paper.svg" width="16" height="16" alt=""> <img src="_images/swatch-base-bg-alt.svg" width="16" height="16" alt=""> <img src="_images/swatch-base-raised.svg" width="16" height="16" alt=""> <img src="_images/swatch-base-border.svg" width="16" height="16" alt=""> <img src="_images/swatch-base-muted.svg" width="16" height="16" alt=""> <img src="_images/swatch-base-comment.svg" width="16" height="16" alt=""> <img src="_images/swatch-base-foreground.svg" width="16" height="16" alt=""> <img src="_images/swatch-accent-orange.svg" width="16" height="16" alt=""> <img src="_images/swatch-accent-mint.svg" width="16" height="16" alt=""> <img src="_images/swatch-accent-red.svg" width="16" height="16" alt=""> <img src="_images/swatch-accent-pink.svg" width="16" height="16" alt=""> <img src="_images/swatch-accent-purple.svg" width="16" height="16" alt=""> <img src="_images/swatch-soft-orange.svg" width="16" height="16" alt=""> <img src="_images/swatch-soft-mint.svg" width="16" height="16" alt=""> <img src="_images/swatch-soft-red.svg" width="16" height="16" alt="">
+    </p>
+</div>
 
 Lauds is a paper-light color theme for prose and code. It is based on the [Vesper Light](https://github.com/samueldsr99/vesper-light) aesthetic, built on the [Flexoki](https://stephango.com/flexoki) paper palette. Lauds features a warm off-white paper background (`#FFFCF0`), charcoal foreground (`#101010`), warm terracotta orange accents (`#B45A20`), and deep mint strings (`#16866F`). This is a **light-only** theme.
 
 Lauds ships as a **VS Code extension**, a **Neovim colorscheme**, and a **pywal** variant.
 
-## Preview
+## 1. Preview
+
+![](./_images/lauds-demo.gif)
 
 ![Lauds palette](_images/lauds-palette.svg)
 
-## Colors
+## 2. Colors
 
-### Base
+### 2.1. Base
 
-| Color      | Hex       | RGB             | Swatch                                       |
-| ---------- | --------- | --------------- | -------------------------------------------- |
-| Paper      | `#FFFCF0` | `255, 252, 240` | ![color](_images/swatch-base-paper.svg)      |
-| Bg alt     | `#F7F3E8` | `247, 243, 232` | ![color](_images/swatch-base-bg-alt.svg)     |
-| Raised     | `#EDE8DC` | `237, 232, 220` | ![color](_images/swatch-base-raised.svg)     |
-| Border     | `#D6D0C4` | `214, 208, 196` | ![color](_images/swatch-base-border.svg)     |
-| Muted      | `#5F6166` | `95, 97, 102`   | ![color](_images/swatch-base-muted.svg)      |
-| Comment    | `#6E7075` | `110, 112, 117` | ![color](_images/swatch-base-comment.svg)    |
-| Foreground | `#101010` | `16, 16, 16`    | ![color](_images/swatch-base-foreground.svg) |
+| Color      | Hex       | RGB             | Swatch                                                                       |
+| ---------- | --------- | --------------- | ---------------------------------------------------------------------------- |
+| Paper      | `#FFFCF0` | `255, 252, 240` | <img src="_images/swatch-base-paper.svg" width="16" height="16" alt="">      |
+| Bg alt     | `#F7F3E8` | `247, 243, 232` | <img src="_images/swatch-base-bg-alt.svg" width="16" height="16" alt="">     |
+| Raised     | `#EDE8DC` | `237, 232, 220` | <img src="_images/swatch-base-raised.svg" width="16" height="16" alt="">     |
+| Border     | `#D6D0C4` | `214, 208, 196` | <img src="_images/swatch-base-border.svg" width="16" height="16" alt="">     |
+| Muted      | `#5F6166` | `95, 97, 102`   | <img src="_images/swatch-base-muted.svg" width="16" height="16" alt="">      |
+| Comment    | `#6E7075` | `110, 112, 117` | <img src="_images/swatch-base-comment.svg" width="16" height="16" alt="">    |
+| Foreground | `#101010` | `16, 16, 16`    | <img src="_images/swatch-base-foreground.svg" width="16" height="16" alt=""> |
 
-### Accents
+### 2.2. Accents
 
-| Color  | Hex       | RGB             | Swatch                                     |
-| ------ | --------- | --------------- | ------------------------------------------ |
-| Orange | `#B45A20` | `180, 90, 32`   | ![color](_images/swatch-accent-orange.svg) |
-| Mint   | `#147A65` | `20, 122, 101`  | ![color](_images/swatch-accent-mint.svg)   |
-| Red    | `#C1503F` | `193, 80, 63`   | ![color](_images/swatch-accent-red.svg)    |
-| Pink   | `#B34A72` | `179, 74, 114`  | ![color](_images/swatch-accent-pink.svg)   |
-| Purple | `#7264A8` | `114, 100, 168` | ![color](_images/swatch-accent-purple.svg) |
+| Color  | Hex       | RGB             | Swatch                                                                     |
+| ------ | --------- | --------------- | -------------------------------------------------------------------------- |
+| Orange | `#B45A20` | `180, 90, 32`   | <img src="_images/swatch-accent-orange.svg" width="16" height="16" alt=""> |
+| Mint   | `#147A65` | `20, 122, 101`  | <img src="_images/swatch-accent-mint.svg" width="16" height="16" alt="">   |
+| Red    | `#C1503F` | `193, 80, 63`   | <img src="_images/swatch-accent-red.svg" width="16" height="16" alt="">    |
+| Pink   | `#B34A72` | `179, 74, 114`  | <img src="_images/swatch-accent-pink.svg" width="16" height="16" alt="">   |
+| Purple | `#7264A8` | `114, 100, 168` | <img src="_images/swatch-accent-purple.svg" width="16" height="16" alt=""> |
 
-### Soft variants
+### 2.3. Soft variants
 
-| Color       | Hex       | RGB             | Swatch                                   |
-| ----------- | --------- | --------------- | ---------------------------------------- |
-| Orange soft | `#F3D2B8` | `243, 210, 184` | ![color](_images/swatch-soft-orange.svg) |
-| Mint soft   | `#BFE9DE` | `191, 233, 222` | ![color](_images/swatch-soft-mint.svg)   |
-| Red soft    | `#F6C8BF` | `246, 200, 191` | ![color](_images/swatch-soft-red.svg)    |
+| Color       | Hex       | RGB             | Swatch                                                                   |
+| ----------- | --------- | --------------- | ------------------------------------------------------------------------ |
+| Orange soft | `#F3D2B8` | `243, 210, 184` | <img src="_images/swatch-soft-orange.svg" width="16" height="16" alt=""> |
+| Mint soft   | `#BFE9DE` | `191, 233, 222` | <img src="_images/swatch-soft-mint.svg" width="16" height="16" alt="">   |
+| Red soft    | `#F6C8BF` | `246, 200, 191` | <img src="_images/swatch-soft-red.svg" width="16" height="16" alt="">    |
 
-## Syntax highlighting
+## 3. Syntax highlighting
 
 | Token            | Color     | Style     |
 | ---------------- | --------- | --------- |
@@ -58,7 +65,7 @@ Lauds ships as a **VS Code extension**, a **Neovim colorscheme**, and a **pywal*
 | Diff inserted    | `#147A65` | —         |
 | Diff deleted     | `#C1503F` | —         |
 
-## Project structure
+## 4. Project structure
 
 ```
 .
@@ -76,7 +83,7 @@ Lauds ships as a **VS Code extension**, a **Neovim colorscheme**, and a **pywal*
 └── .vscodeignore                 # VSIX packaging ignore rules
 ```
 
-## VS Code
+## 5. VS Code
 
 Install the extension locally or package it with `vsce`, then select **Lauds** from the color theme picker.
 
@@ -86,7 +93,7 @@ The VS Code theme includes:
 - **30+ TextMate token scopes**: comments, keywords, strings, numbers, functions, classes, variables, CSS properties, JSON keys, Markdown (headings, bold/italic, links, raw blocks, tables), regex, diff markers
 - **Semantic token colors**: function, method, string, number, comment, keyword, variable, property, type
 
-## Neovim
+## 6. Neovim
 
 With a plugin manager, point to this repository and load:
 
@@ -113,7 +120,7 @@ The colorscheme can also be loaded directly:
 colorscheme lauds
 ```
 
-### Neovim highlight groups
+### 6.1. Neovim highlight groups
 
 **Core editor groups** (70+ groups): `Normal`, `Cursor`, `LineNr`, `CursorLine`, `Search`, `Visual`, `Pmenu`, `TabLine`, `StatusLine`, `WinSeparator`, `SpellBad/Cap/Local/Rare`, `Folded`, `MatchParen`, etc.
 
@@ -135,7 +142,7 @@ colorscheme lauds
 
 **Diagnostics (vim.diagnostics)**: `DiagnosticError`, `DiagnosticWarn`, `DiagnosticInfo`, `DiagnosticHint`, `DiagnosticOk`, `DiagnosticVirtualText*`, `DiagnosticUnderline*`, `LspReferenceText/Read/Write`
 
-### Plugin integrations
+### 6.2. Plugin integrations
 
 The Neovim theme includes highlight groups for these plugins:
 
@@ -150,7 +157,7 @@ The Neovim theme includes highlight groups for these plugins:
 | bufferline.nvim | `BufferLineFill`, `BufferLineBackground`, `BufferLineBufferSelected`, `BufferLineIndicatorSelected`, `BufferLineModified`, `BufferLineModifiedSelected` |
 | gitsigns.nvim   | `GitSignsAdd`, `GitSignsChange`, `GitSignsDelete`                                                                                                       |
 
-### lualine.nvim
+### 6.3. lualine.nvim
 
 The colorscheme provides a built-in **lualine theme**:
 
@@ -162,11 +169,11 @@ require("lualine").setup({
 
 Mode indicators: **normal** (orange), **insert** (mint), **visual** (muted), **replace** (red), **command** (orange).
 
-## pywal
+## 7. pywal
 
 A [pywal](https://github.com/dylanaraps/pywal) colorscheme variant is available at `variants/pywal/lauds.json`. Copy it to `~/.config/wal/colorschemes/light/` to use it with `wal --theme lauds`.
 
-## Validation
+## 8. Validation
 
 ```bash
 npm test
@@ -181,6 +188,6 @@ The validation script (`scripts/validate.js`) verifies:
 5. **pywal scheme** — correct references, hex color validity, key color values
 6. **Neovim runtime** — headless Neovim loads and applies the colorscheme without errors
 
-## License
+## 9. License
 
 MIT — see [LICENSE](./LICENSE).
